@@ -1,0 +1,49 @@
+ORIENTAÇÕES PARA QUE O PROJETO FUNCIONE CORRETAMENTE:
+
+
+1 - clicar com botão direito na pasta "backend" no menu à esquerda e abri-la no terminal integrado
+(obs: todos os comandos de terminal do projeto devem ser usados nessa pasta)
+
+2 - com o terminal aberto, utilizar o "npm install"
+
+3 - criar arquivo .env na pasta "backend" com suas informações de acesso ao banco (user, senha e connstring)
+
+OS PASSOS 1, 2 e 3 DEVEM SER REALIZADOS APENAS UMA VEZ!!!
+
+
+
+4 - ligar o banco no sqldeveloper
+
+5 - utilizar "npm start" no terminal
+
+OS PASSOS ACIMA DEVEM SER UTILIZADOS SEMPRE QUE FOR ACESSAR O projeto
+
+
+
+//////////////////////////////////////////////////////////////////////
+
+COMANDOS DE GIT:
+
+Acesse a pasta Projetos-Faculdade no terminal
+(obs: todos os comandos de terminal de git devem ser usados nessa pasta)
+
+- COMANDO 1: git pull
+deve ser utilizado SEMPRE ao abrir a pasta E também antes de enviar as alterações. serve para "puxar"
+as alterações enviadas por outros usuários
+
+- COMANDO 2: git add .
+após puxar as atualizações com git pull, utilize o comando acima para adicionar TODAS suas alterações na área
+de alterações do git
+
+- COMANDO 3: git status
+depois de realizar suas mudanças e utilizar o add, use o git status para verificar se as modificações que serão 
+enviadas estão corretas
+
+- COMANDO 4: git commit -m "coloque uma msg entre aspas"
+depois de verificar as mudanças, este comando serve para criar um ponto de save com suas alterações
+
+- COMANDO 5: git push origin
+depois do commit, utilize o push para enviar as alterações para o repositório remoto (para que todos tenham acesso)
+
+
+

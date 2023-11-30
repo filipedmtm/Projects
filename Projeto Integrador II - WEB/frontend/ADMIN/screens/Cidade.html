@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar - Cidades</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../style/style.css">
+    <link rel="icon" href="../../assets/images/favicon.png" type="image/x-icon">
+
+</head>
+
+<header>
+  <nav class="menu">
+  <div class="divLogo">
+    <img class="Logo" src="../../assets/images/Logo Transparente.png">
+  </div>
+  <div class="divDropdown">
+    <button class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Gerenciar
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li><a class="dropdown-item" href="../screens/Aeronave.html">Aeronaves</a></li>
+      <li><a class="dropdown-item" href="../screens/Aeroporto.html">Aeroportos</a></li>
+      <li><a class="dropdown-item" href="../screens/Cidade.html">Cidades</a></li>
+      <li><a class="dropdown-item" href="../screens/Trecho.html">Trechos</a></li>
+      <li><a class="dropdown-item" href="../screens/Voo.html">Voos</a></li>
+  </div>
+  </nav>
+</header>
+
+<body>  
+  
+<!-- MODAL -->
+<dialog class="popUpDelete" id="popUpDelete">
+  <div class="popUpHeader">
+    <table>
+      <thead>
+        <tr>
+          <td class class="titlePopUp"><h1>ATENÇÃO</h1></td>
+          <td class="xPopUp"><img class="iconList" src="../../assets/images/closeicon.png" onclick="fechaPopUpDeletar(); alternarDivs('popUpDone', 'popUpBody'); limparStatus('statusDelete');" ></td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div id="popUpBody">
+    <p class="pInline">Tem certeza que deseja excluir a cidade de código <p class=" pInline codStyle" id="pcodDelete"></p><p class="pInline"> ?</p>
+      <br>
+      <br>
+      A ação não poderá ser desfeita.
+    </p>
+    <button class="btn btn-warning botaoExcluirPopUp"
+    onclick="deletarCidade(codigoToUse); alternarDivs('popUpBody', 'popUpDone');">Excluir</button>
+    <button class="btn btn-secondary"
+    onclick="fechaPopUpDeletar(); limparStatus('statusDelete');">Cancelar</button>
+    <br>
+  </div>
+  
+  <div id="popUpDone">
+    <p id="statusDelete" class="statusError"></p>
+    <button class="btn btn-warning"
+    onclick="fechaPopUpDeletar(); limparStatus('statusDelete'); alternarDivs('popUpDone', 'popUpBody')">Sair</button>
+  </div>
+</dialog>
+
+<div class="row">
+    <div class="col-md-5" id="divCadastrar">
+        <div class="titulo" id="titleCadastrar">
+            <h1>Cadastrar Cidade</h1>
+            <br>
+            <p>Preencha todos os campos abaixo:</p>
+        </div>
+        <div class="formulario" id="formCadastrar">
+          <form>
+              <p>
+                  <label for="nome">Nome da cidade:</label><br/>
+                  <input type="text" id="nome" name="nome" max="20" class="inputTam1" placeholder="Ex: Campinas">
+              </p>
+              <br>
+              <p>
+                  <label for="uf">Estado:</label><br>
+                  <select id="uf" name="uf" class="inputTam1">
+                      <option value="0" selected>Selecione um estado</option>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                      <option value="EX">Estrangeiro</option>
+                  </select>
+              </p>
+              <br>
+              <p>
+                  <label for="pais">País:</label><br>
+                  <input type="text" id="pais" name="pais" max="15" class="inputTam1" placeholder="Ex: Brasil"> 
+              </p>
+              <br>
+              <p>
+                  <button 
+                  type="button"
+                  class="btn btn-warning"
+                  onclick= "inserirCidade();"
+                  id="btnCadastrar"
+                  name="btnCadastrar">Inserir</button>
+
+                  <button type="reset" class="btn btn-secondary" onclick="limparStatus('statusCadastrar'); " id="btnCinza" name="btnCinza">Limpar</button>
+                  
+              </p>
+              <p id="statusCadastrar" class="statusError"></p>
+          </form>
+      </div>
+    </div>
+    <div class="col-md-5" id="divAlterar">
+      <div class="titulo" id="titleAlterar">
+          <h1>Alterar Cidade</h1>
+          <br>
+          <p class="pInline">Você está alterando a cidade de código: </p> <p class="codStyle pInline" id="pcodAlter"></p>
+      </div>
+
+      <div class="formulario" id="formAlterar">
+          <form>
+              <p>
+              <label for="codigoCidade">Código da Cidade:</label><br>
+              <input type="text" id="codigoCidade" name="codigoCidade" class="inputTam2 locked" placeholder="Ex: 974">
+              </p>
+              <br> 
+              <p>
+                  <label for="nomeCidade">Nome da cidade:</label><br>
+                  <input type="text" id="nomeCidade" name="nomeCidade" maxlength="20" class="inputTam1" placeholder="Ex: Campinas">
+              </p>
+              <br>
+              <p>
+                  <label for="ufCidade">Estado:</label><br>
+                  <select id="ufCidade" name="ufCidade" class="inputTam1">
+                      <option value="0" selected>Selecione um estado</option>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                      <option value="EX">Estrangeiro</option>
+                  </select>
+              </p>
+              <br>
+              <p>
+                  <label for="paisCidade">País:</label><br>
+                  <input type="text" id="paisCidade" name="paisCidade" maxlength="15" class="inputTam1" placeholder="Ex: Brasil">
+              </p>
+              <br>
+              <p>
+                  <button 
+                  type="button" 
+                  class="btn btn-warning"
+                  onclick="alterarCidade();"
+                  id="btnAlterar"
+                  name="btnAlterar">Alterar</button>
+                  <button type="reset" 
+                  class="btn btn-secondary"
+                  onclick="limparStatus('statusAlterar');" 
+                  id="btnCinzaAlterar"
+                  name="btnCinza">Limpar</button>
+                  <button type="button"
+                  class="btn btn-secondary"
+                  onclick="alternarDivs('divAlterar', 'divCadastrar');">Voltar</button>   
+
+              </p>
+              <p id="statusAlterar" class="statusError"></p>
+          </form>
+        </div>
+  </div>
+
+    <!-- TABELA -->
+    <div class="col-md-7">
+          
+            <div id="cadastros">
+              <table class="tableVoos">
+                
+                <thead>
+                  <tr>
+                    <th class="text-center align-middle">Código</th>
+                    <th class="text-center align-middle">Nome</th>
+                    <th class="text-center align-middle">UF</th>
+                    <th class="text-center align-middle">País</th>
+                    <th> </th>
+                    <th> </th>
+                  </tr>
+                </thead>
+                <tbody class="dadosTabela"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="footer">
+      <p class="copyright">©️ Copyright - AIR PUC 2023</p>
+    </div>
+    <script type="text/javascript" src="../scripts/Cidade.js"></script>
+    <script type="text/javascript" src="../scripts/Globais.js"></script>
+    <script type="text/javascript" src="../scripts/Validadores.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script>
+      exibirCidades();
+    </script>
+</body>
+</html>
+   

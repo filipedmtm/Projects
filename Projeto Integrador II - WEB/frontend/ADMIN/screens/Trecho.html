@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar - Trechos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../style/style.css">
+    <link rel="icon" href="../../assets/images/favicon.png" type="image/x-icon">
+  </head>
+
+  <header>
+    <nav class="menu">
+    <div class="divLogo">
+      <img class="Logo" src="../../assets/images/Logo Transparente.png">
+    </div>
+    <div class="divDropdown">
+      <button class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Gerenciar
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <li><a class="dropdown-item" href="../screens/Aeronave.html">Aeronaves</a></li>
+        <li><a class="dropdown-item" href="../screens/Aeroporto.html">Aeroportos</a></li>
+        <li><a class="dropdown-item" href="../screens/Cidade.html">Cidades</a></li>
+        <li><a class="dropdown-item" href="../screens/Trecho.html">Trechos</a></li>
+        <li><a class="dropdown-item" href="../screens/Voo.html">Voos</a></li>
+    </div>
+    </nav>
+  </header>
+
+  <body>
+    <dialog class="popUpDelete" id="popUpDelete">
+      <div class="popUpHeader">
+        <table>
+          <thead>
+            <tr>
+              <td class class="titlePopUp"><h1>ATENÇÃO</h1></td>
+              <td class="xPopUp"><img class="iconList" src="../../assets/images/closeicon.png" onclick="fechaPopUpDeletar(); alternarDivs('popUpDone', 'popUpBody'); limparStatus('statusDelete');" ></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div id="popUpBody">
+        <p class="pInline">Tem certeza que deseja excluir o trecho de código <p class=" pInline codStyle" id="pcodDelete"></p><p class="pInline"> ?</p>
+          <br>
+          <br>
+          A ação não poderá ser desfeita.
+        </p>
+        <button class="btn btn-warning botaoExcluirPopUp"
+        onclick="deletartrecho(codigoToUse); alternarDivs('popUpBody', 'popUpDone');">Excluir</button>
+        <button class="btn btn-secondary"
+        onclick="fechaPopUpDeletar(); limparStatus('statusDelete');">Cancelar</button>
+        <br>
+      </div>
+      
+      <div id="popUpDone">
+        <p id="statusDelete" class="statusError"></p>
+        <button class="btn btn-warning"
+        onclick="fechaPopUpDeletar(); limparStatus('statusDelete'); alternarDivs('popUpDone', 'popUpBody')">Sair</button>
+      </div>
+    </dialog>
+
+    <div class="row">
+      <div class="col-md-5" id="divCadastrar">
+      <div class="titulo" id="titleCadastrar">
+          <h1>Cadastrar Trecho</h1>
+          <br>
+          <p>Preencha todos os campos abaixo:</p>
+      </div>
+      <div class="formulario" id="formCadastrar">
+        <form>
+          <p>
+            <label for="nomeCad">Nome do trecho:</label><br>
+            <input type="text" id="nomeCad" name="nomeCad" maxlength="20" placeholder="Ex: SAO -> RIO" class="inputTam1">
+          </p>
+          <br>
+          <p>
+            <label for="selectOrigemAeroportoCad">Aeroporto Origem:</label><br>
+            <select name="selectOrigemAeroportoCad" id="selectOrigemAeroportoCad" class="inputTam1">
+            </select>
+          </p>
+          <br>
+          <p>
+            <label for="selectDestinoAeroportoCad">Aeroporto Destino:</label><br>
+            <select name="selectDestinoAeroportoCad" id="selectDestinoAeroportoCad" class="inputTam1">
+            </select>
+          </p>
+          <br>
+          <p>
+            <label for="selectAeronaveCad">Aeronave:</label><br>
+            <select name="selectAeronaveCad" id="selectAeronaveCad" class="inputTam1">
+            </select>
+          </p>
+          <br>
+          <p>
+            <button 
+              type="button"
+              class="btn btn-warning" 
+              onclick="inserirTrecho();"
+              id="btnCadastrar"
+              name="btnCadastrar">Inserir</button>
+
+              <button type="reset" 
+              class="btn btn-secondary"
+              onclick="limparStatus('statusCadastrar');"
+              id="btnCinza"
+              name="btnCinza">Limpar</button>
+
+          </p>
+          <p id="statusCadastrar" class="statusError"></p>
+        </form>
+        </div>
+    </div>
+    <!-- INICIO DA DIV DE ALTERAR -->
+    <div class="col-md-5" id="divAlterar">
+      <div class="titulo" id="titleAlterar">
+        <h1>Alterar Trecho</h1>
+        <br>
+        <p class="pInline">Você está alterando o trecho de código: </p> <p class="codStyle pInline" id="pcodAlter"></p>
+      </div>
+      <div class="formulario" id="formAlterar">
+        <form>
+          <p>
+            <label for="codAlt">Código do trecho:</label><br>
+            <input type="text" id="codAlt" name="codAlt" class="inputTam2 locked" placeholder="Ex: 1234">
+          </p>
+            <p>
+              <label for="nomeAlt">Nome do trecho:</label><br>
+              <input type="text" id="nomeAlt" name="nomeAlt" class="inputTam1" maxlength="20" placeholder="Ex: SAO -> RIO">
+            </p>
+            <br>
+            <p>
+              <label for="selectOrigemAeroportoAlt">Aeroporto Origem:</label><br>
+              <select name="selectOrigemAeroportoAlt" id="selectOrigemAeroportoAlt" class="inputTam1">
+              </select>
+            </p>
+            <br>
+            <p>
+              <label for="selectDestinoAeroportoAlt">Aeroporto Destino:</label><br>
+              <select name="selectDestinoAeroportoAlt" id="selectDestinoAeroportoAlt" class="inputTam1">
+              </select>
+            </p>
+            <br>
+            <p>
+              <label for="selectAeronaveAlt">Aeronave:</label><br/>
+              <select name="selectAeronaveAlt" id="selectAeronaveAlt" class="inputTam1">
+              </select>
+            </p>
+            <br>
+            <p>
+              <button 
+                type="button"
+                class="btn btn-warning" 
+                onclick="alterarTrecho();"
+                id="btnAlterar"
+                name="btnAlterar">Alterar</button>
+                <button type="reset" 
+                class="btn btn-secondary" 
+                id="btnCinza"
+                onclick="limparStatus('statusAlterar');"
+                name="btnCinza">Limpar</button>
+                <button type="button"
+                class="btn btn-secondary"
+                onclick="alternarDivs('divAlterar', 'divCadastrar');">Voltar</button>  
+  
+            </p>
+            <p id="statusAlterar" class="statusError"></p>
+          </form>
+        </div>
+          </div>
+
+        <div class="col-md-7">
+          <div id="cadastros">
+            <table class="tableVoos"> 
+              <thead>
+                <tr>
+                  <th class="text-center align-middle">Código</th>
+                  <th class="text-center align-middle">Nome</th>
+                  <th class="text-center align-middle">Origem</th>
+                  <th class="text-center align-middle">Destino</th>
+                  <th class="text-center align-middle">Aeronave</th>
+                  <th> </th>
+                  <th> </th>
+                </tr>
+              </thead>
+              <tbody class="dadosTabela"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    <div class="footer">
+      <p class="copyright">©️ Copyright - AIR PUC 2023</p>
+    </div>
+    <script type="text/javascript" src="../scripts/Trecho.js"></script>
+    <script type="text/javascript" src="../scripts/Globais.js"></script>
+    <script type="text/javascript" src="../scripts/Validadores.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script>
+      exibirTrecho();
+      exibirAeronave();
+      exibirAeroporto();
+    </script>
+  </body>
+</html>

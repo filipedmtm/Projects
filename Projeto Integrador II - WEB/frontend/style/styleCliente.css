@@ -1,0 +1,313 @@
+body { /* Corpo geral da página*/
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(0, 0, 0);
+}
+
+label {
+    color: #b9b9b9; /* cor do título do item */
+    
+}
+
+input, select{ /* configurações do label */
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 3px;
+}
+
+h1 { /* título do formulário */
+    margin: 0 5%;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+header {
+    background-color: #343A40;
+    color: #343A40;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-carrinho{
+    width: 30px;
+    height: auto;
+}
+.statusError {
+   color: red;
+}
+.statusSuccess {
+  color: blue;
+}
+
+.titulo { /* div do título do formulário */
+    background-color: #FFC107;
+    width: 500px;
+    padding: 20px 30px;
+    border-radius:50px 50px 0 0;   
+    text-align: center;
+}
+
+.formulario{ /* div do corpo do formulário */
+    background-color: #212529;
+    width: 500px;
+    padding: 30px;
+    border-radius: 0 0 50px 50px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.alteracao {
+    margin-top: 10px; /* margem do título do item (fabricante, modelo, etc) até o label */
+}
+
+.espacoTitulo {
+    width: 80%;
+}
+
+.espacoSetas {
+    width: 5%;
+}
+
+
+.Logo { /* logo (vai ser adicionado ainda) */
+    width: 110px;
+    height: auto;
+
+}
+
+
+.imgSetas:hover { /* botoes de seta para melhor navegação */
+    background-color: #edda9b;
+    border-radius: 5px;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.tamanhoInputNomeTrecho {
+    width: 250px;
+}
+
+.tableVoos {
+    width: 100;
+    font-size: 11px;
+}
+
+
+.row {
+    margin-top: 100px;
+    padding: 0 5%;
+}
+
+.menu {
+    display: flex;
+    font-size: 20px;
+    color: white;
+    height: 80px;
+    padding: 0 5%;
+    background-color: #212529;
+}
+
+.divDropdown {
+    display: flex;
+    justify-content: right;
+    align-items: center; 
+    width: 50%;
+}
+
+.divLogo {
+    display: flex;
+    justify-content: left;
+    align-items: center; 
+    width: 50%;
+}
+
+.iconList {
+    width: 15px;
+    height: auto;
+}
+
+.iconList:hover {
+    filter: brightness(0) invert(1);
+  }
+
+
+.TextPrincipal{
+    color:white;
+    font-size:30px;
+    padding-top: 150px;
+    display:block;
+}
+
+.TextPrinci{
+    color:white;
+    font-size: 30px;
+    margin-top: 180px;
+    font-size: 30px;
+}
+
+
+.LogoHeader {
+    align-items: center;
+    justify-content: center;    
+    width: 200px;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+
+img {
+    width: 25%;
+    height: auto;
+}
+
+.tituloPagamento{
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.corpo{
+    display: flex;
+}
+
+.PIX{
+    padding-right: 50px;
+}
+
+.CREDITO{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.CPagamento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+
+.tipoPagamento{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.Dinfo{
+    display: 
+    flex; gap: 10px;
+}
+
+.BOXform{
+    margin-top: 5px; 
+    width: 200px;
+}
+
+.BPagamento{
+    margin-top: 30px; 
+    margin-bottom: 30px;
+}
+
+.container {
+    width: 100000px;
+}
+
+.footer { /* rodapé */
+    margin-top: 50px;
+    color:#ECCA56;
+    font-size: 12px;
+    display: flex;
+    padding-top: 15px;
+    justify-content: center;
+    background-color: #212529;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    /* position: fixed; */
+}
+
+.payment-message {
+    color: green;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+.Conteudo {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.tituloInicial{
+    font-size: 90px;
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+
+.corpoFormulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.exibeVoo{
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    color:white;
+    flex-direction: column;
+    background-color:   #212529;;
+    border: solid #FFC107 2px;
+    border-radius: 10px;
+    padding : 10px;
+}
+
+.exibeVoo td {
+    text-align: center;
+}
+
+.exibeVoo th {
+    font-size: 18px;
+}
+
+
+.exibeVooCabecalho{
+    text-align: center;
+    justify-content: center;
+}
+.vooformulario{ /* div do corpo do formulário da busca de voos */
+    background-color: #212529;
+    width: 500px;
+    padding: 30px;
+    border-radius: 0 0 50px 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#notFound {
+    margin-top: 50px;
+    display: none;
+    color: red;
+    text-align: center;
+}
+
+#tabelaVoos {
+    width: 100%;
+}

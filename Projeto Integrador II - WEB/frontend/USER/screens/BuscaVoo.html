@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Buscar - Voos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../../style/styleCliente.css">
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/x-icon">
+</head>
+
+<header></header>
+
+<body>
+  <div>
+    <div class="corpoFormulario">
+      <div class="titulo">
+        <h1>Buscar Voo</h1>
+        <br>
+        <p>Preencha todos os campos para buscar um Voo:</p>
+      </div>
+    <div>
+      <form class = "vooformulario">
+        <label for="tipoPassagem">Tipo de Passagem:</label>
+        <select id="tipoPassagem" name="tipoPassagem">
+          <option value="0" selected>Tipo de passagem</option>
+          <option value="idaVolta">Ida e Volta</option>
+          <option value="somenteIda">Somente Ida</option>
+        </select>
+
+        <label for="dataIda">Data Ida:</label>
+        <input type="date" id="dataIda" name="dataIda" required>
+
+        <label for="dataVolta">Data Retorno:</label>
+        <input type="date" id="dataVolta" name="dataVolta">
+        <p>
+          <label for="selectOrigemAeroportoAlt">Aeroporto/Cidade Origem:</label><br>
+          <select name="selectOrigemAeroportoAlt" id="selectOrigemAeroportoCad" class="inputTam1"></select>
+        </p>
+        <br>
+        <p>
+          <label for="selectDestinoAeroportoAlt">Aeroporto/Cidade Destino:</label><br>
+          <select name="selectDestinoAeroportoAlt" id="selectDestinoAeroportoCad" class="inputTam1"></select>
+        </p>
+        <button type="button" class="btn btn-warning" onclick="selecionarVoos();">Buscar Voos</button>
+        <button type="reset" class="btn btn-secondary">Limpar</button>
+      </form>
+    </div>
+  </div>
+  <!-- Aqui seria exibida a lista de opções de voo após a busca -->
+  <!-- Esta parte pode ser preenchida dinamicamente com JavaScript -->
+  <div class="exibeVoo" id="retornoBusca">
+    <table id="tabelaVoos">
+      <thead class="exibeVooCabecalho">
+        <tr>
+          <th>Voo</th>
+          <th>Data</th>
+          <th>Trecho</th>
+          <th>Saída</th>
+          <th>Chegada</th>
+          <th>Origem</th>
+          <th>Destino</th>
+          <th>Preço</th>
+          <th>Comprar</th>
+        </tr>
+      </thead>
+      <tbody id="listaVoos">
+        <!-- Aqui serão inseridas as linhas com os voos -->
+      </tbody>
+    </table>
+  </div>
+  <div id="notFound"><p id="pMensagem"></p></div>
+
+  <div class="footer">
+    <p class="copyright">©️ Copyright - AIR PUC 2023</p>
+  </div>
+  <script type="text/javascript" src="../scripts/BuscaVoo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script>
+      exibirAeroporto();
+  </script>
+</body>
+</html>

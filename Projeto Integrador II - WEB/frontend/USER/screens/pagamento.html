@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PAGAMENTO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../style/style.css">
+    <link rel="icon" href="../../assets/images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <img src="../../assets/images/Logo Transparente.png">
+
+                <p class="tipoPagamento">SELECIONE A FORMA DE PAGAMENTO</p>
+                <div class="corpo">
+                    <p id="codigoVoo" class="TextSecundario"></p>
+                    <p id="valorVoo" class="TextSecundario"></p>
+                    <p id="assentosSelecionados" class="TextSecundario"></p>
+                    <p id="valorTotal" class="TextSecundario"></p>
+                    <div>
+                        <input class="form-check-input" type="radio" name="payment" id="pix" value="pix" checked>
+                        <label class="form-check-label text-white; PIX" for="pix">
+                            PIX
+                        </label>
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="radio" name="payment" id="credit" value="credit">
+                        <label class="form-check-label text-white; CREDITO">
+                            Cartão de Crédito
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col" id="divFormularioPagamento" style="display: none;">
+                <div class="titulo">
+                    <h1>Cartão de Crédito</h1>
+                    <br>
+                    <p class="pInline">Preencha o formulário com as informações do seu cartão:</p>
+                </div>
+
+                <div class="formulario" id="formCredito">
+                    <form>
+                        <p>
+                            <label for="cardholder-name">Nome completo:</label><br>
+                            <input class="BOXform" type="text" id="cardholder-name" placeholder="Ex: José Silva">
+                        </p>
+                        <br>
+                        <p>
+                            <label for="cardholder-email">Email:</label><br>
+                            <input class="BOXform" type="text" id="cardholder-email" placeholder="Ex: José@hotmail.com">
+                        </p>
+                        <br>
+                        <p>
+                            <label for="card-number">Número do Cartão:</label><br>
+                            <input class="BOXform" type="number" id="card-number" placeholder="Ex: 4000-1234-5678-9010">
+                        </p>
+                        <br>
+                        <p>
+                            <label for="expiry-date">Data de Expiração:</label><br>
+                            <input class="BOXform" type="date" id="cardholder-expiryDate" placeholder="Ex: 25/12/2034">
+                        </p>
+                        <br>
+                        <p>
+                            <label for="cvv">CVV:</label><br/>
+                            <input class="BOXform" type="number" id="card-cvv-number" placeholder="Ex: 653">
+                        </p>
+                        <br>
+                        
+                        <button class="btn btn-outline-warning btn-lg BPagamento" id="buy" type="button" onclick="processPayment()">Realizar Pagamento</button>
+                        <button class="btn btn-outline-warning btn-lg BPagamento" id="limpa" type="button" onclick="limparFormulario()">Limpar</button>
+                        <p id="mensagemPagamento" class="mensagem"></p>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="col" id="divFormularioPix" style="display: none;" >
+                <div class="titulo">
+                    <h1>Pagamento PIX</h1>
+                    <br>
+                    <p class="pInline">Escaneie o QR code e continue o pagamento pelo App:</p>
+                </div>
+
+                <div class="formulario" id="formPix">
+                    <img src="../../assets/images/Screenshot 2023-11-24 234726.png" id="pixQRCode" alt="QR Code PIX" style="max-width: 100%;" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="copyright">©️ Copyright - AIR PUC 2023</p>
+    </footer>
+
+
+    <script src="../scripts/pagamento.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath"></script>
+    <script>
+        exibirParametrosNaPagina();
+    </script>
