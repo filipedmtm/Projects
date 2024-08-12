@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "729940923250",
+    "project_id": "projeto-integrador-kotlin21",
+    "storage_bucket": "projeto-integrador-kotlin21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729940923250:android:2bec67687886d560c443eb",
+        "android_client_info": {
+          "package_name": "br.com.puccampinas.kotlin_projetointegrador21"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABgk13N7PxzbvfP-LmYFcSIv1zdyiVKRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

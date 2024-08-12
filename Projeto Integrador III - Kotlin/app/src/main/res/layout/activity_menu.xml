@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/map_fragment"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="690dp" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/fundoLowbar"
+        android:layout_width="450dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@drawable/fundocinzapi" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogout"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/black"
+        android:text="@string/sair"
+        android:background="@drawable/botao_estilo"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSaldo"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="150dp"
+        android:drawableTop="@drawable/wallet"
+        android:textColor="@color/black"
+        android:text="@string/carteira"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/botao_estilo"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/infoScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/perfil"
+        android:layout_gravity="bottom"
+        android:textColor="@color/black"
+        android:layout_marginStart="280dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/botao_estilo" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="70dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/alugar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/blackYellow"
+            android:text="@string/alugar"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</FrameLayout>
