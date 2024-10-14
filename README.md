@@ -1,4 +1,4 @@
 # Projects
-Projetos Acadêmicos - PUC Campinas - 2023.
+Projetos Acadêmicos - PUC Campinas.
 Filipe Daniel Medeiros Tertuliano Mota.
 Alguns programas e projetos desenvolvidos.
